@@ -133,6 +133,7 @@ app.get("/", async (req, res) => {
     });
 
     res.render("pages/index.ejs", {
+      title: "Book Project",
       books: books,
       totalBooks: books.length,
       showHero: true, 
@@ -145,7 +146,7 @@ app.get("/", async (req, res) => {
 });
 
 
-// Create Add new book route
+// Create the "Add new book" route
 app.get("/books/new", async (req, res) => {
   const books = await getBooks(); 
 
@@ -188,7 +189,7 @@ app.post ("/books", async (req, res) => {
   }
 }); 
 
-// Create a get method to get the edit page
+// Create a get method to get the "Edit" page
 app.get("/books/:id/edit", async (req, res) => {
   const books = await getBooks(); 
 
@@ -201,7 +202,6 @@ app.get("/books/:id/edit", async (req, res) => {
   }
 
   res.render("pages/edit.ejs", {
-    books: books, 
     book: book, 
     totalBooks: books.length,
     showHero: false,
